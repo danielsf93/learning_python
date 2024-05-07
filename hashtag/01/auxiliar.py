@@ -4,9 +4,10 @@ import pyautogui
 import time
 
 #comando que mostra posição do mouse
-#time.sleep(5)
+time.sleep(5)
 #print(pyautogui.position())
 
 #(x=427, y=393)
 #(x=410, y=277)
 
+print(pyautogui.KEYBOARD_KEYS)

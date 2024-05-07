@@ -39,7 +39,7 @@ time.sleep(2)
 #clicar na posição de login
 #para encontrar as posições de mouse, criar auxiliar.py 
 #click esquerdo
-pyautogui.click(x=427, y=393)
+pyautogui.click(x=543, y=308)
 #escrever email
 pyautogui.write("danielsilva@usp.br")
 
@@ -67,7 +67,7 @@ for linha in tabela.index:
 
 
     #clicar em código do produto
-    pyautogui.click(x=410, y=277)
+    pyautogui.click(x=650, y=238)
     #variavel de codigo da tabela
     codigo = str(tabela.loc[linha, "codigo"])
     pyautogui.write(codigo)
@@ -94,7 +94,9 @@ for linha in tabela.index:
 
     #OBS
     pyautogui.press("tab")
-    pyautogui.write(str(tabela.loc[linha, "obs"]))
+    obs = tabela.loc[linha, "obs"]
+    if not pd.isna(obs):
+        pyautogui.write(str(tabela.loc[linha, "obs"]))
     pyautogui.press("enter")
 
     #subir a página
