@@ -13,12 +13,5 @@ import time
 
 #print(pyautogui.KEYBOARD_KEYS)
 
-# Localize um elemento na tela usando uma imagem e clique nele
-# Substitua 'botao.png' pelo nome correto da imagem de referência
-location = pyautogui.locateOnScreen('botao.png', confidence=0.9)
 
-if location:
-    x, y = pyautogui.center(location)  # Obtém o centro da área encontrada
-    pyautogui.click(x, y)  # Clique no centro
-else:
-    print("Elemento não encontrado!")  # Informe se a imagem não foi encontrada
+
