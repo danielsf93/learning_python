@@ -1,29 +1,49 @@
-#importando a ferramenta/biblioteca
 import pyautogui
-#importando o sleep para fazer pausas
 import time
 
-
-
-#colocando tempo de pause - 0.5 é meio segundo
+# Colocando tempo de pausa global para PyAutoGui
 pyautogui.PAUSE = 1
 
+# Pausa para o site carregar antes de iniciar o loop
+time.sleep(2)
 
-#automação:
-#abrir o menu linux
-#You must install tkinter on Linux to use MouseInfo. Run the following: sudo apt-get install python3-tk python3-dev
-pyautogui.press("win")
+# Loop infinito
+while True:
+    try:
+        # Clique no primeiro botão usando uma imagem
+        x, y = pyautogui.center(pyautogui.locateOnScreen('botao01.png', confidence=0.9))
+        pyautogui.click(x, y)
 
-#escrever
-pyautogui.write("firefox")
+        # Clique no segundo botão usando uma imagem
+        x, y = pyautogui.center(pyautogui.locateOnScreen('botao02.png', confidence=0.9))
+        pyautogui.click(x, y)
 
-#enterhttps?www.google.com.br
-pyautogui.press("enter")
+        # Clique no terceiro botão usando uma imagem
+        x, y = pyautogui.center(pyautogui.locateOnScreen('botao03.png', confidence=0.9))
+        pyautogui.click(x, y)
 
-pyautogui.hotkey('ctrl', 't')
-pyautogui.hotkey('ctrl', 't')
-pyautogui.hotkey('ctrl', 't')
-pyautogui.hotkey('ctrl', 'tab')
-pyautogui.hotkey('ctrl', 'tab')
-pyautogui.hotkey('ctrl', 'w')
-pyautogui.hotkey('ctrl', 'w')
+        # Pausa para garantir que ações anteriores sejam concluídas
+        time.sleep(5.5)
+
+        # Usando teclas de atalho
+        pyautogui.hotkey('ctrl', 'w')  # Fecha uma aba
+        pyautogui.hotkey('tab')  # Alterna para o próximo elemento
+        pyautogui.hotkey('ctrl', 'enter')  # Ação com Ctrl+Enter
+
+        # Pequena pausa para evitar sobrecarga
+        time.sleep(2)
+
+        # Alternar entre abas
+        pyautogui.hotkey('ctrl', 'tab')
+
+        # Adicione uma pausa entre iterações para evitar excessos
+        time.sleep(1)
+    
+    except Exception as e:
+        print("Erro encontrado:", e)  # Exibe mensagem de erro
+        break  # Interrompe o loop para evitar comportamentos inesperados
+
+
+
+
+
